@@ -20,3 +20,10 @@ biblioteka JavaScript do tworzenia interfejsu strony/aplikacji, np. przycisków,
 **Express** – framework dla Node.js służący do tworzenia serwera i API, np. obsługi adresów /users, /login czy /products.
 
 **MySQL** – system zarządzania bazą danych, w której przechowuje się informacje, np. użytkowników, produkty, zamówienia.
+
+
+**JAK ODDAJĘ ZADANIA**
+
+- na kazdym mini-bloku tworze galaz w formacie inf04-mb[00] gdzie [00] znaczy numer bloku
+- tworze, commituje zmiany
+- push request, merge i odeslanie na serwer zdalny 
