@@ -1,4 +1,4 @@
-\# INF.04 - aplikacje webowe
+\# INF.04 - aplikacje webowe - wersja z głównego brancha
 
 
 
