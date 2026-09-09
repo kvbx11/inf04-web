@@ -6,40 +6,97 @@
     <title>Wizytowka</title>
 </head>
 <body>
-    <header>
-        <h1>Jakub Kłódkowski 5p1T</h1>
+    <header class="naglowek">
+        <img class="awatar" src="avatar.jpg" alt="Awatar">
+
+        <div class="naglowek-tekst">
+            <h1>Jakub Kłódkowski</h1>
+            <p class="podtytul">Technik programista klasa 5</p>
+        </div>
+
     </header>
 
-    <aside>
-        <img src="avatar.jpg" alt="Zdjecie profilowe">
-    </aside>
+    <main>
+        <section id="o-mnie">
+            <h2>O mnie</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora neque aut atque sequi quisquam explicabo doloremque a labore deserunt esse, delectus sapiente laborum molestiae? Saepe labore iure voluptatum doloremque sapiente.
+                Dolore aliquid maxime ipsa doloribus sapiente enim asperiores praesentium fuga, voluptates eaque sed itaque non, minima necessitatibus ab minus alias totam est magnam error adipisci sequi eligendi. Incidunt, atque expedita?
+                Repudiandae magnam optio praesentium dolorum ducimus, eos quibusdam adipisci quasi? Sequi, exercitationem reiciendis obcaecati architecto ducimus corporis itaque quae. Adipisci velit vero, sed minima dolores quisquam totam aut! Tempora, et.
+                Temporibus, saepe aut quo enim necessitatibus nostrum corporis inventore at consequuntur numquam quisquam sequi autem aliquid sed adipisci omnis. Voluptas corrupti quibusdam vel, maxime maiores architecto sequi nobis nam eum!
+                Nam exercitationem ullam voluptatum fuga? Accusantium magni voluptatum ab illum eveniet. Quia aut sequi velit recusandae, vero voluptatem quam repudiandae consectetur corrupti iure saepe fugit impedit eveniet laboriosam, cupiditate fugiat?
+                Laudantium placeat saepe dicta doloremque aut facere neque repellendus dolorem velit. Fugit, aliquam! Esse quibusdam animi nam nesciunt minus dolores. Quo voluptatibus impedit molestiae blanditiis aspernatur totam deserunt cum ex?
+                Earum non facere culpa illo aspernatur ipsam laudantium esse quidem hic dolores adipisci ipsa laboriosam reiciendis debitis consectetur odio vero voluptatibus aliquid perferendis molestiae delectus, rem rerum iure libero? Dolorem?
+                Praesentium optio, consequuntur eligendi non officiis, minima ea nostrum delectus quae reprehenderit repudiandae excepturi necessitatibus doloribus alias molestias officia dignissimos quo quam vero perspiciatis veniam. Veniam temporibus necessitatibus fugiat odit?
+                Qui neque fuga asperiores hic dolor, sed necessitatibus. Molestias quaerat inventore repellendus accusantium voluptates distinctio tenetur, in assumenda quod corrupti officiis quo, sequi maxime sunt cum, ratione velit unde. Maxime.
+                Maiores, a quas sed quasi cumque dignissimos tenetur aperiam nemo praesentium soluta enim quibusdam esse dolorum, facilis perferendis eum vero ea impedit eveniet fugiat? Velit voluptates pariatur libero nobis labore?
+            </p>
+        </section>
 
-    <section>
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>PrestaShop</li>
-            <li>React</li>
-        </ul>
+        <section id="umiejetnosci">
+            <h2>Umiejetnosci</h2>
+            <ul class="lista-umiejetnosci">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Git</li>
+            </ul>
+        </section>
+
+        <section id="kontakt">
+            <h2>Kontakt</h2>
+
+<form id="formularz" novalidate>
+
+        <div class="pole">
+          <label for="imie">Imię i nazwisko</label>
+          <input type="text" id="imie" name="imie">
+          <p class="blad" id="blad-imie"></p>
+        </div>
+
+        <div class="pole">
+          <label for="email">Adres e-mail</label>
+          <input type="email" id="email" name="email">
+          <p class="blad" id="blad-email"></p>
+        </div>
+
+        <div class="pole">
+          <label for="temat">Temat</label>
+          <select id="temat" name="temat">
+            <option value="">— wybierz temat —</option>
+            <option value="wspolpraca">Propozycja współpracy</option>
+            <option value="pytanie">Pytanie o projekt</option>
+            <option value="inne">Inne</option>
+          </select>
+          <p class="blad" id="blad-temat"></p>
+        </div>
+
+        <div class="pole">
+          <label for="wiadomosc">Wiadomość</label>
+          <textarea id="wiadomosc" name="wiadomosc" rows="5"></textarea>
+          <p class="blad" id="blad-wiadomosc"></p>
+        </div>
+
+        <button type="submit" class="przycisk">Wyślij wiadomość</button>
+      </form>
+
+      <div id="podziekowanie" class="podziekowanie" hidden>
+        <h3>Dziękuję za wiadomość!</h3>
+        <p id="podziekowanie-tresc"></p>
+      </div>
     </section>
 
-    <footer>
-        <form>
-            <label for="imie">Imię: </label>
-            <input type="text" name="imie" placeholder="imie.." required>
+        </section>
+    </main>
 
-            <label for="email">Email: </label>
-            <input type="email" name="email" placeholder="user@example.com" required>
-
-            <label for="temat">Temat: </label>
-            <select name="temat">
-                <option value="Zwolnienie">Zwolnienie</option>
-                <option value="Usprawiedliwienie nieobecnosci">Usprawiedliwienie nieobecnosci</option>
-                <option value="Pytanie odnosnie zajec">Pytanie odnosnie zajec</option>
-            </select>
-
-        </form>
+    <footer class="stopka">
+        <p>
+            Jakub Kłódkowski
+            <a href="https://github.com/kvbx11">GitHub</a>
+            <a href="mailto:jk@example.com">jk@example.com</a>
+        </p>
     </footer>
+
+    <script src="main.js"></script>
 </body>
 </html>
