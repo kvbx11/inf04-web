@@ -5,6 +5,7 @@ import viteLogo from './assets/vite.svg'
 import './App.css'
 import Navbar from './components/Navbar'
 import CategoryBar from './components/CategoryBar'
+import Gallery from './components/Gallery'
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
 
       <main className="container">
         <CategoryBar/>
+        <Gallery/>
       </main>
     </>
 
