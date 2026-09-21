@@ -1,6 +1,3 @@
-/* Kolor przewodni: #5B3FD6 → rgb(91, 63, 214) */
-
-/* Zmienne w jednym miejscu — zmiana koloru to jedna linia, nie dwadzieścia */
 :root {
   --kolor-glowny: #5B3FD6;
   --kolor-ciemny: #40299B;
@@ -8,10 +5,8 @@
   --kolor-tlo:    #F4F4F7;
 }
 
-/* width to CAŁA szerokość, razem z paddingiem i ramką */
 * { box-sizing: border-box; }
 
-/* Podstawa: brak marginesu okna, czytelna interlinia, szare tło */
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
@@ -20,28 +15,22 @@ body {
   background: var(--kolor-tlo);
 }
 
-/* Wspólna szerokość i wyśrodkowanie nagłówka oraz treści */
 .naglowek, main {
   max-width: 860px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
-/* Drobne poprawki odstępów i kolorów w nagłówku */
 .naglowek { padding-top: 2rem; }
 .naglowek h1 { margin: 0; color: var(--kolor-glowny); }
 .podtytul { margin: 0.25rem 0 1.5rem; color: #5A5A66; }
 
-/* ---------- filtr ---------- */
-
-/* Etykieta nad polem, nie obok — dlatego display: block */
 .pole-filtra label {
   display: block;
   font-weight: 600;
   margin-bottom: 0.3rem;
 }
 
-/* Pole węższe niż strona; font: inherit, bo pola mają własny systemowy krój */
 .pole-filtra input {
   width: 100%;
   max-width: 340px;
@@ -51,26 +40,17 @@ body {
   border-radius: 6px;
   background: #FFFFFF;
 }
-
-/* Wyraźne zaznaczenie pola, w którym stoi kursor — także dla klawiatury */
 .pole-filtra input:focus {
   outline: 2px solid var(--kolor-glowny);
   outline-offset: 1px;
   border-color: var(--kolor-glowny);
 }
-
-/* min-height rezerwuje miejsce, żeby lista nie skakała przy zmianie licznika */
 .licznik {
   margin: 0.4rem 0 1.25rem;
   min-height: 1.2rem;
   font-size: 0.875rem;
   color: #5A5A66;
 }
-
-/* ---------- lista kart ---------- */
-
-/* Flexbox z zawijaniem: karty same układają się w kolumny.
-   list-style i padding zerujemy, bo <ul> ma domyślnie kropki i wcięcie */
 .lista {
   display: flex;
   flex-wrap: wrap;
@@ -79,8 +59,6 @@ body {
   margin: 0;
   list-style: none;
 }
-
-/* flex: rośnie | kurczy się | bazowo 260px — stąd 3 kolumny lub 1, bez @media */
 .karta {
   flex: 1 1 260px;
   background: #FFFFFF;
@@ -90,14 +68,12 @@ body {
   padding: 1rem 1.1rem;
 }
 
-/* Nazwa użytkownika — mniejsza niż h1, ale nadal nagłówek karty */
 .karta h2 {
   margin: 0 0 0.5rem;
   font-size: 1.05rem;
   color: var(--kolor-ciemny);
 }
 
-/* Siatka dwukolumnowa: etykiety i wartości równają się w pionie */
 .karta dl {
   margin: 0;
   display: grid;
@@ -105,8 +81,6 @@ body {
   gap: 0.15rem 0.6rem;
   font-size: 0.9rem;
 }
-
-/* Etykieta szara, wartość bez domyślnego wcięcia <dd> */
 .karta dt { color: #5A5A66; }
 .karta dd { margin: 0; }
 
