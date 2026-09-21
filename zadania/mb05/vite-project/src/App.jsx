@@ -6,7 +6,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import CategoryBar from './components/CategoryBar'
 import Gallery from './components/Gallery'
-
+import FiltersOffcanvas from './components/FiltersOffCanvas'
 
 function App() {
   return (
