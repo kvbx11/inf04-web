@@ -1,4 +1,4 @@
-function FiltersOffcanvas() {
+export default function FiltersOffcanvas() {
   return (
     <div
       className="offcanvas offcanvas-start"
@@ -51,5 +51,3 @@ function FiltersOffcanvas() {
     </div>
   )
 }
-
-export default FiltersOffcanvas
