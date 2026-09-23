@@ -27,6 +27,11 @@ function App() {
         setZdjecia([...zdjecia, {...nowe, id:noweId, favorite:false}])
       }
 
+      function przelaczUlubione(id){
+        setZdjecia(
+          zdjecia.map(z=>z.id===id?{...z,favorite:!z.favorite}:z)
+        )
+      }
       return (
       <>
       <Navbar />
@@ -70,12 +75,12 @@ function App() {
         <p className="text-body-secondary">
           Wyświetlono {widoczne.length} z {zdjecia.length} zdjęć
         </p>
-        
+
         {widoczne.length === 0 &&(
           <div className="alert alert-warning">Nie znaleziono zdjęć w tej kategorii</div>
         )}
 
-        <Gallery zdjecia={widoczne} onUsun={usunZdjecie}/>
+        <Gallery zdjecia={widoczne} onUsun={usunZdjecie} onPrzelacz={przelaczUlubione}/>
       </main>
 
       <Footer/>
