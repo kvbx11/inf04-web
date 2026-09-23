@@ -6,7 +6,9 @@ import './App.css'
 import Navbar from './components/Navbar'
 import CategoryBar from './components/CategoryBar'
 import Gallery from './components/Gallery'
+import Footer from "./components/Footer"
 import FiltersOffcanvas from './components/FiltersOffCanvas'
+import AddPhotoModal from './components/AddPhotoModal'
 
 function App() {
   return (
@@ -50,6 +52,10 @@ function App() {
         <CategoryBar/>
         <Gallery/>
       </main>
+
+      <Footer/>
+
+      <AddPhotoModal/>
     </>
 
   )
