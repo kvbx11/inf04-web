@@ -1,5 +1,6 @@
 import { Fragment } from 'react'
 import PhotoCard from './PhotoCard.jsx'
+import PhotoModal from './PhotoModal.jsx'
 
 export default function Gallery({zdjecia, onUsun, onPrzelacz}) {
   return (
@@ -9,6 +10,8 @@ export default function Gallery({zdjecia, onUsun, onPrzelacz}) {
           <div className="col-12 col-md-6 col-lg-4">
             <PhotoCard {...photo} onUsun={()=>onUsun(photo.id)} onPrzelacz={()=>onPrzelacz(photo.id)}/>
           </div>
+           <PhotoModal {...photo} />
+
         </Fragment>
       ))}
     </div>
