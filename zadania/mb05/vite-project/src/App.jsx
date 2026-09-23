@@ -11,14 +11,24 @@ import FiltersOffcanvas from './components/FiltersOffCanvas'
 import AddPhotoModal from './components/AddPhotoModal'
 import photos from "./data/photos.json"
 
+
 function App() {
       const [zdjecia, setZdjecia] = useState(photos)
       const [aktywnaKategoria, setAktywnaKategoria] = useState('wszystkie')
 
       const widoczne = aktywnaKategoria==='wszystkie'?zdjecia:zdjecia.filer(z=>z.category===aktywnaKategoria)
+  
+      function usunZdjecie(id){
+        setZdjecia(zdjecia.filter(z=>z.id!==id))
+      }
 
-  return (
-  <>
+      function dodajZdjecie(nowe){
+        const noweId=Math.max(...zdjecia.map(z=>z.id))+1
+        setZdjecia([...zdjecia, {...nowe, id:noweId, favorite:false}])
+      }
+
+      return (
+      <>
       <Navbar />
 
       <header className="container py-4 py-lg-5">
@@ -60,16 +70,18 @@ function App() {
         {widoczne.length === 0 &&(
           <div className="alert alert-warning">Nie znaleziono zdjęć w tej kategorii</div>
         )}
-        <Gallery zdjecia={widoczne}/>
+        <Gallery zdjecia={widoczne} onUsun={usunZdjecie}/>
       </main>
 
       <Footer/>
 
-      <AddPhotoModal/>
+      <AddPhotoModal onDodaj={dodajZdjecie}/>
       <FiltersOffcanvas aktywna={aktywnaKategoria} onWybierz={setAktywnaKategoria}/>
     </>
 
   )
 }
+
+
 
 export default App
