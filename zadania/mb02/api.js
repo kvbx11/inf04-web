@@ -30,7 +30,6 @@ function kartaHtml(uzytkownik) {
       </dl>
     </li>`;
 }
-
 function pokazListe(lista) {
   if (lista.length === 0) {
     wynik.innerHTML = `<p class="stan">Brak wyników</p>`;
@@ -64,11 +63,9 @@ function odswiez() {
 async function pobierzUzytkownikow() {
   try {
     const odpowiedz = await fetch(ADRES);
-
     if (!odpowiedz.ok) {
       throw new Error(`Błąd HTTP: ${odpowiedz.status} ${odpowiedz.statusText}`);
     }
-
     return await odpowiedz.json();
   } catch (blad) {
     console.error("Nie udało się pobrać danych:", blad);
@@ -85,10 +82,12 @@ async function start() {
     odswiez();
     filtr.focus();
   } catch (blad) {
+    // Komunikat zamiast pustej białej strony.
     pokazBlad(blad.message);
     licznik.textContent = "";
   }
 }
+
 filtr.addEventListener("input", odswiez);
 
 start();
