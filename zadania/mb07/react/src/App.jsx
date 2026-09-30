@@ -13,7 +13,14 @@ function App() {
   const [szukaj,setSzukaj]=useState('')
   const [rosnaco,setRosnaco]=useState(true)
   const [status, setStatus]=useState(null)
-  const widoczne=kursy.map((kurs,index)=>({kurs,nume:index+1})).filter(({kurs})=>kurs.toLowerCase().includes(szukaj.toLowerCase).sort((a,b)=>rosnaco?a.kurs.localeCompare(b.kurs):b.kurs.localeCompare(a.kurs)))
+ const widoczne = kursy
+  .map((kurs, index) => ({ kurs, numer: index + 1 }))
+  .filter(({ kurs }) =>
+    kurs.toLowerCase().includes(szukaj.toLowerCase())
+  )
+  .sort((a, b) => rosnaco
+    ? a.kurs.localeCompare(b.kurs)
+    : b.kurs.localeCompare(a.kurs))
 
   function handleSubmit(event) {
     event.preventDefault()
