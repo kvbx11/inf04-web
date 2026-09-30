@@ -38,8 +38,11 @@ function App() {
 
       <div className="d-flex gap-2 mb-2">
       <input type="text" className='form-control mb-2' placeholder='Szukaj kursu...' value={szukaj} onChange={e=>setSzukaj(e.target.value)} />
-<button type="button" className='btn btn-outline-secondary text-nowrap' onClick={()=>setRosnaco(!rosnaco)}>Sortuj {rosnaco?"Z->A":"A->Z"}</button>
+      <button type="button" className='btn btn-outline-secondary text-nowrap' onClick={()=>setRosnaco(!rosnaco)}>Sortuj {rosnaco?"Z->A":"A->Z"}</button>
       </div>
+      <p className="text-body-secondary">
+        Znaleziono {widoczne.length} z {kursy.length} kursów
+      </p>
       <ol>
         {widoczne.map(({kurs, numer}) => (
           <li key={numer} value={numer}>{kurs}</li>
