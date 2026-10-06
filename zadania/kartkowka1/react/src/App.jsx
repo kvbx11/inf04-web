@@ -11,7 +11,25 @@ function App() {
   const numerPrzegladarkiRef = useRef(null)
   const [blad,setBlad]=useState("")
 
- 
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+    setBlad('')
+
+    const numer_przegladarki = numerPrzegladarkiRef.current.value
+    const przegladarka = przegladarki[numer_przegladarki-1]
+
+    console.log("Uzytkownik: "+imieNazwiskoRef.current.value)
+
+    if(przegladarka){
+      console.log("Wybrana pozycja: "+przegladarka)
+    }
+    else{
+      const komunikat_bledu = "Nieprawidłowy numer przeglądarki internetowej"
+      setBlad(komunikat_bledu)
+      console.log("Błąd: "+komunikat_bledu)
+    }
+
+  }
 
   return (
     <>  
