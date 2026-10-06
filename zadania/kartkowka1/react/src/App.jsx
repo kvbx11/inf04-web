@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
@@ -7,6 +7,11 @@ import przegladarki from './data/wariant20'
 import Pozycja from './components/Pozycja'
 
 function App() {
+  const imieNazwiskoRef = useRef(null)
+  const numerPrzegladarkiRef = useRef(null)
+  const [blad,setBlad]=useState("")
+
+ 
 
   return (
     <>  
@@ -18,8 +23,20 @@ function App() {
         })}
       </ol>
     
+
+        <form onSubmit={handleSubmit}>
+          <div className="m-3 w-50">
+            <label htmlFor="imie_nazwisko" className="form-label">Imię i nazwisko</label>
+            <input type="text" name="imie_nazwisko" id="imie_nazwisko" className="form-control" ref={imieNazwiskoRef} required/>
+          </div>
+          <div className="m-3 w-50">
+            <label htmlFor="numer_przegladarki" className="form-label">Numer przeglądarki internetowej:</label>
+            <input type="number" name="numer_przegladarki" id="numer_przegladarki" className="form-control" ref={numerPrzegladarkiRef}/>
+          </div>
+          <button type="submit" className='btn btn-primary ms-3'>Zatwierdź wybór</button>
+        </form>
     
-    
+        {blad&&<p className='text-danger'>{blad}</p>}
     </>
   )
 }
