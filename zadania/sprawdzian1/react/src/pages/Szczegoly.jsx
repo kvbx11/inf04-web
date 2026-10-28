@@ -19,7 +19,7 @@ export default function Szczegoly({ lista }) {
         <div className="d-flex justify-content-between">
           <h4>{p.tekst}</h4>
           <span className={`badge ${p.widoczny ? 'bg-success' : 'bg-secondary'} align-self-start`}>
-            {p.dostepny ? 'Dostępny' : 'Niedostępny'}
+            {p.widoczny ? 'Dostępny' : 'Niedostępny'}
           </span>
         </div>
         <p className="text-muted">Numer: {p.identyfikator}</p>
