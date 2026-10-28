@@ -1,122 +1,61 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+import { useEffect, useState } from 'react'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import Katalog from './pages/Katalog.jsx'
+import Dodaj from './pages/Dodaj.jsx'
+import Szczegoly from './pages/Szczegoly.jsx'
+ 
+export default function App() {
+  const [lista, setLista] = useState([])
+  const [status, setStatus] = useState('ladowanie') 
+ 
+  useEffect(() => {
+    fetch('/dane.json')
+      .then((r) => {
+        if (!r.ok) throw new Error('Błąd HTTP')
+        return r.json()
+      })
+      .then((dane) => {
+        setLista(dane)
+        setStatus('gotowe')
+      })
+      .catch(() => setStatus('blad'))
+  }, [])
+ 
+  const usun = (id) => setLista(lista.filter((p) => p.id !== id))
+  const przelacz = (id) =>
+    setLista(lista.map((p) => (p.id === id ? { ...p, dostepny: !p.dostepny } : p)))
+  const dodaj = (nowy) => {
+    const noweId = lista.length ? Math.max(...lista.map((p) => p.id)) + 1 : 1
+    setLista([...lista, { ...nowy, id: noweId }])
+  }
+ 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <BrowserRouter>
+      <nav className="navbar bg-light px-3 mb-3">
+        <span className="navbar-brand fw-bold">Katalog kwiatów</span>
+        <div className="me-auto d-flex gap-3">
+          <Link to="/">Katalog</Link>
+          <Link to="/dodaj">Dodaj</Link>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      </nav>
+ 
+      <div className="container">
+        {status === 'ladowanie' && <p>Ładowanie…</p>}
+        {status === 'blad' && (
+          <div className="alert alert-danger">Nie udało się pobrać danych.</div>
+        )}
+        {status === 'gotowe' && (
+          <Routes>
+            <Route
+              path="/"
+              element={<Katalog lista={lista} onUsun={usun} onPrzelacz={przelacz} />}
+            />
+            <Route path="/dodaj" element={<Dodaj onDodaj={dodaj} />} />
+            <Route path="/:id" element={<Szczegoly lista={lista} />} />
+            <Route path="*" element={<h2>Nie ma takiej strony</h2>} />
+          </Routes>
+        )}
+      </div>
+    </BrowserRouter>
   )
 }
-
-export default App
