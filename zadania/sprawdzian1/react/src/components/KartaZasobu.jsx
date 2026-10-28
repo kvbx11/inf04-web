@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom'
 
 export default function KartaZasobu({ pozycja, onUsun, onPrzelacz }) {
-  const klasa = pozycja.liczba > 50 ? 'border-success border-2' : ''
+    function klasaKarty(p) {
+    if (p.widoczny && p.liczba >= 50) return 'border-success border-3'   
+    if (p.widoczny && p.liczba < 50) return 'border-warning border-3' 
+                                    
+  }
+
+  const klasa = klasaKarty(pozycja)
 
   return (
     <div className="col">
