@@ -11,7 +11,7 @@ export default function KartaZasobu({ pozycja, onUsun, onPrzelacz }) {
         <p className="card-text mb-1">Gatunek: {pozycja.gatunek}</p>
         <p className="card-text">Rozmiar: {pozycja.liczba}</p>
         <span className={`badge ${pozycja.widoczny ? 'bg-success' : 'bg-secondary'}`}>
-          {pozycja.dostepny ? 'Dostępny' : 'Niedostępny'}
+          {pozycja.widoczny ? 'Dostępny' : 'Niedostępny'}
         </span>
       </div>
       <div className="card-footer d-flex gap-2">

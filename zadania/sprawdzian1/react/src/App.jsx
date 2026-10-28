@@ -21,12 +21,12 @@ export default function App() {
       .catch(() => setStatus('blad'))
   }, [])
  
-  const usun = (id) => setLista(lista.filter((p) => p.id !== id))
+  const usun = (id) => setLista(lista.filter((p) => p.identyfikator !== id))
   const przelacz = (id) =>
-    setLista(lista.map((p) => (p.id === id ? { ...p, widoczny: !p.widoczny } : p)))
+    setLista(lista.map((p) => (p.identyfikator === id ? { ...p, widoczny: !p.widoczny } : p)))
   const dodaj = (nowy) => {
-    const noweId = lista.length ? Math.max(...lista.map((p) => p.id)) + 1 : 1
-    setLista([...lista, { ...nowy, id: noweId }])
+    const noweId = lista.length ? Math.max(...lista.map((p) => p.identyfikator)) + 1 : 1
+    setLista([...lista, { ...nowy, identyfikator: noweId }])
   }
  
   return (
