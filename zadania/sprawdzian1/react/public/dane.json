@@ -1,0 +1,37 @@
+[
+  {
+    "identyfikator": 1,
+    "tekst": "Chrome",
+    "gatunek": "Otwarte",
+    "liczba": 21,
+    "widoczny": true
+  },
+  {
+    "identyfikator": 2,
+    "tekst": "Firefox",
+    "gatunek": "Zamknięte",
+    "liczba": 38,
+    "widoczny": false
+  },
+  {
+    "identyfikator": 3,
+    "tekst": "Edge",
+    "gatunek": "Mobilne",
+    "liczba": 55,
+    "widoczny": true
+  },
+  {
+    "identyfikator": 4,
+    "tekst": "Safari",
+    "gatunek": "Otwarte",
+    "liczba": 72,
+    "widoczny": true
+  },
+  {
+    "identyfikator": 5,
+    "tekst": "Opera",
+    "gatunek": "Zamknięte",
+    "liczba": 89,
+    "widoczny": false
+  }
+]
