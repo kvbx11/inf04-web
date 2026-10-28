@@ -20,7 +20,7 @@ export default function Katalog({ lista, onUsun, onPrzelacz }) {
 
       <div className="row g-3">
         {widoczne.map((p) => (
-          <div className="col-md-4" key={p.id}>
+          <div className="col-md-4" key={p.identyfikator}>
             <KartaZasobu pozycja={p} onUsun={onUsun} onPrzelacz={onPrzelacz} />
           </div>
         ))}
