@@ -32,7 +32,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <nav className="navbar bg-light px-3 mb-3">
-        <span className="navbar-brand fw-bold">Katalog kwiatów</span>
+        <span className="navbar-brand fw-bold">Katalog przeglądarek</span>
         <div className="me-auto d-flex gap-3">
           <Link to="/">Katalog</Link>
           <Link to="/dodaj">Dodaj</Link>
