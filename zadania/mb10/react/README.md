@@ -1,16 +1,29 @@
-# React + Vite
+#Galeria zdjęć
+Aplikacja napisana w React z funkcjonalnością przegladania, filtrowania, usuwania i dodawania nowych zdjęć. Zdjęcia są kategoryzowane. Można je sortować bezpośrednio na stronie. Każde zdjęcie posiada swoją stronę szczegółów
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#Funkcjonalności
+- przegladanie galerii z filtrowanymi zdjęciami
+- dodawanie nowych zdjęć i usuwanie istniejących
+- obsługa stanu ładowania i błędu przy pobieraniu danych
+- obsługa stron 404
+- strona szczegółów dla każdego zdjęcia
 
-Currently, two official plugins are available:
+#Uruchomienie
+```bash
+npm install
+npm run dev
+```
+Aplikacja działa pod `http://localhost:5173`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+##Struktura projektu
+- `src/components/` - komponenty wielokrotnego użytku (karty, pasek kategorii, stopka, zdjęcie dnia )
+- `src/pages/` - strony podpiete pod routing aplikacji (`GaleriaPage`, `DodajPage`, `NotFoundPage`, `ZdjeciePage`)
+- `src/services/` - warstwa komunikacji z danymi (`zdjecia.js`)
+- `src/hooks/` - pobieranie danych z pliku
 
-## React Compiler
+## Technologie
+- React
+- Bootstrap
+- Vite
+- React Router
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
