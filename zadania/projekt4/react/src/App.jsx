@@ -9,6 +9,7 @@ function App() {
     <>
     <Routes>
       <Route path="/" element={<ListaWydarzenPage />} />
+      <Route path="/wydarzenie/:id" element={<SzczegolyWydarzeniaPage />} />
     </Routes>
     </>
   )
