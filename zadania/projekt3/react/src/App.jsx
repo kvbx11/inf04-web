@@ -59,6 +59,18 @@ function App() {
       <div className="container mt-4">
         <h1>Wypożyczalnia rowerów</h1>
 
+        <input
+          type="text"
+          className="form-control mb-3"
+          placeholder="Szukaj po modelu..."
+          value={szukaj}
+          onChange={event => setSzukaj(event.target.value)}
+        />
+
+        {widoczne.length === 0 && (
+          <div className="alert alert-secondary">Brak wyników</div>
+        )}
+
         <div className="row g-3">
           {widoczne.map(rower => (
             <div key={rower.id} className="col-12 col-md-6">
