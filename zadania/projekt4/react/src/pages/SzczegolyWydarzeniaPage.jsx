@@ -1,3 +1,5 @@
+import { useParams, useNavigate } from "react-router-dom"
+import { wydarzenia } from "../wydarzenia"
 export default function SzczegolyWydarzeniaPage() {
   const { id } = useParams()
   const navigate = useNavigate()

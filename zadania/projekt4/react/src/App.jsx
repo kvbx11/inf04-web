@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Routes, Route, Link, useParams, useNavigate } from 'react-router-dom'
 import ListaWydarzenPage from './pages/ListaWydarzenPage'
+import SzczegolyWydarzeniaPage from './pages/SzczegolyWydarzeniaPage'
 
 
 function App() {
